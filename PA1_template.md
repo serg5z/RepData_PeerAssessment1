@@ -25,12 +25,11 @@ steps_per_interval <- aggregate(steps ~ interval, data, mean);
 mean_steps_per_day <- mean(steps_per_day$steps);
 median_steps_per_day <- median(steps_per_day$steps);
 
-no_missing <- data;
-no_missing[is.na(no_missing$steps),"steps"] <- median_steps_per_day/n
-no_missing$day <- as.factor(ifelse(weekdays(no_missing$date) %in% c("Saturday","Sunday"), "weekend", "weekday"));
+data[is.na(data$steps),"steps"] <- median_steps_per_day/n
+data$day <- as.factor(ifelse(weekdays(data$date) %in% c("Saturday","Sunday"), "weekend", "weekday"));
 
-steps_per_day2 <- aggregate(steps ~ date, no_missing, sum);
-steps_per_interval2 <- aggregate(steps ~ (interval+day), no_missing, mean);
+steps_per_day2 <- aggregate(steps ~ date, data, sum);
+steps_per_interval2 <- aggregate(steps ~ (interval+day), data, mean);
 ```
 
 ## What is mean total number of steps taken per day?
@@ -62,7 +61,7 @@ Maximum number of steps on average observed during interval: 835
 
 ## Imputing missing values
 
-Thre are 2304 missing values in the dataset.
+Thre are 0 missing values in the dataset.
 Missing values are replaced with median number of steps per day divided by number of 5-min intervals in a day.
 
 ```r

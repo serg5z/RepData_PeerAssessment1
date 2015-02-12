@@ -24,7 +24,7 @@ mean_steps_per_day <- mean(steps_per_day$steps);
 median_steps_per_day <- median(steps_per_day$steps);
 
 data[is.na(data$steps),"steps"] <- median_steps_per_day/n
-data <- as.factor(ifelse(weekdays(data$date) %in% c("Saturday","Sunday"), "weekend", "weekday"));
+data$day <- as.factor(ifelse(weekdays(data$date) %in% c("Saturday","Sunday"), "weekend", "weekday"));
 
 steps_per_day2 <- aggregate(steps ~ date, data, sum);
 steps_per_interval2 <- aggregate(steps ~ (interval+day), data, mean);
