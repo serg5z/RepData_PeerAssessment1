@@ -74,6 +74,8 @@ with(steps_per_day2, histogram(steps, main="Total number of steps in a day"));
 mean_steps_per_day2 <- mean(steps_per_day2$steps);
 median_steps_per_day2 <- median(steps_per_day2$steps);
 ```
+Mean number of steps per day: 10766.03
+Median number of steps per day: 10765
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
