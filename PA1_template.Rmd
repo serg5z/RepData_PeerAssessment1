@@ -33,7 +33,7 @@ steps_per_interval2 <- aggregate(steps ~ (interval+day), data, mean);
 ## What is mean total number of steps taken per day?
 
 ``` {r}
-with(steps_per_day, xyplot(steps ~ date, type="h", main="Total number of steps"));
+with(steps_per_day, histogram(steps, main="Total number of steps in a day"));
 ```
 Mean number of steps per day: `r mean_steps_per_day`
 Median number of steps per day: `r median_steps_per_day`
@@ -53,7 +53,7 @@ Maximum number of steps on average observed during interval: `r max_interval`
 Thre are `r length(which(is.na(data$steps)))` missing values in the dataset.
 Missing values are replaced with median number of steps per day divided by number of 5-min intervals in a day.
 ``` {r}
-with(steps_per_day2, xyplot(steps ~ date, type="h", main="Total number of steps"));
+with(steps_per_day2, histogram(steps, main="Total number of steps in a day"));
 mean_steps_per_day2 <- mean(steps_per_day2$steps);
 median_steps_per_day2 <- median(steps_per_day2$steps);
 ```

@@ -36,7 +36,7 @@ steps_per_interval2 <- aggregate(steps ~ (interval+day), data, mean);
 
 
 ```r
-with(steps_per_day, xyplot(steps ~ date, type="h", main="Total number of steps"));
+with(steps_per_day, histogram(steps, main="Total number of steps in a day"));
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
@@ -65,7 +65,7 @@ Thre are 0 missing values in the dataset.
 Missing values are replaced with median number of steps per day divided by number of 5-min intervals in a day.
 
 ```r
-with(steps_per_day2, xyplot(steps ~ date, type="h", main="Total number of steps"));
+with(steps_per_day2, histogram(steps, main="Total number of steps in a day"));
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
